@@ -4,3 +4,23 @@
   justify-content: left;
 
 }
+.appNavbar{
+  text-decoration: none !important;
+  display: flex !important;
+  justify-content: space-evenly !important;
+  padding-left: 5rem !important;
+}
+.loginNavBar{
+  padding-left: 35rem ;
+}
+.formLogin{
+  padding-top: 5rem;
+  width:33%;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.contLog{
+  display: flex;
+  justify-content: center;
+}

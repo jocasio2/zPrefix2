@@ -5,8 +5,16 @@
     align-self: center;
     justify-content: space-between;
     padding-top: 5px;
+    text-decoration: none !important;
 }
 .frisCards{
     padding-top: 2rem;
     
+}
+.frisbeeData{
+    width: 33%;
+  
+}
+.cardContainer{
+    text-decoration: none;
 }
