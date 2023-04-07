@@ -1,0 +1,17 @@
+.frisbeeImage{
+    width: 10rem;
+}
+.frisbeeBrand{
+    text-align: center;
+}
+.addedCont{
+    width: 33%;
+    display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  padding-top: 2rem;
+  text-align: center;
+}
+img{
+    width: 100%;
+}

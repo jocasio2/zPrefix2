@@ -13,7 +13,10 @@
 }
 .frisbeeData{
     width: 33%;
-  
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
 }
 .cardContainer{
     text-decoration: none;

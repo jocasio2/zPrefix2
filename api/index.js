@@ -4,10 +4,11 @@ const knex = require('knex')(require('./knexfile.js')[process.env.NODE_ENV||'dev
 const port = 8080;
 const cors = require('cors');
 // const { default: knex } = require('knex');
+
 app.use(cors( {
     origin: 'http://localhost:3000',
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'UPDATE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }));
 app.use(express.json());
@@ -33,6 +34,8 @@ app.get('/frisbees', function(req, res) {
     .then(data => res.status(200).json(data))
     .catch(err => console.log('there was an error'))
    });
+/////////
+
 
 
    //Posts
@@ -65,7 +68,7 @@ app.get('/frisbees', function(req, res) {
       })
       .catch(err => res.status(404).json(err))
    });
-
+///////
 
 
 //DELETES
@@ -77,20 +80,21 @@ app.get('/frisbees', function(req, res) {
       .then(data => res.status(200).send("Delete frisbee was successful!"))
       .catch(err => res.status(404).json(err))
   })
+/////
 
 
+  //PUT
+  app.put('/frisbees', function(req, res) {
 
-  //PATCHES
-  app.patch('/frisbees/:id', function(req, res) {
     let frisbee = req.body;
-    let frisbeeID = req.params.id;
+
   
-    knex('frisbees').where('id', frisbeeID)
+    knex('frisbees').where('id', frisbee.id)
       .update(frisbee)
       .then(data => res.status(200).send("Insert into frisbees was successful!"))
       .catch(err => res.status(404).json(err))
    });
-  
+  //////
 
 
   app.listen(port, () => console.log(`Listening on ${port}`))

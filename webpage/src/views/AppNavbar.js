@@ -25,7 +25,18 @@ function AppNavbar() {
                 loggedIn ?
                     [ 
                         // add as many as you'd like here
-                        <Link className='appNavbar'  to="/updateFrisbees">Edit Frisbees </Link>
+                        <Link className='appNavbar'  to="/updateFrisbees">Edit Frisbees </Link>   
+                 
+                    ]
+                    :
+                    null
+                }
+                {
+                loggedIn ?
+                    [ 
+                        // add as many as you'd like here
+                        <Link className='appNavbar'  to="/FrisbeesAdded">Frisbees Added </Link>   
+                 
                     ]
                     :
                     null

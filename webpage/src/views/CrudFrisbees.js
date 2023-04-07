@@ -56,10 +56,10 @@ const {frisbee, setFrisbee} = React.useContext(FrisbeeContext);
         }
     const handleUpdate = (e) => {
         
-    fetch(`http://localhost:8080/frisbees/${id}`, {
-        method: "UPDATE",
+    fetch(`http://localhost:8080/frisbees`, {
+        method: "PUT",
         headers: {
-        "Content-type": "application/json"
+            "Content-type": "application/json"
         }
     })
     .then(()=> 
@@ -143,7 +143,7 @@ const {frisbee, setFrisbee} = React.useContext(FrisbeeContext);
         
             <br></br>
             <Button variant="primary" type="submit" >
-                Submit
+                Delete
             </Button>
     </Form>
 
@@ -199,7 +199,7 @@ const {frisbee, setFrisbee} = React.useContext(FrisbeeContext);
             </Form.Select>
             <br></br>
             <Button variant="primary" type="submit" >
-                Submit
+                Update
             </Button>
     </Form>
     
