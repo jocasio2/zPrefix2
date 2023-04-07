@@ -9,7 +9,7 @@ function CrudFrisbees() {
 const [brand, setBrand] = useState()
 const [type, setType] = useState()
 const [color, setColor] = useState()
-const [desc, setDesc] = useState(' ')
+const [desc, setDesc] = useState()
 const [img, setImg] = useState()
 const [id, setId] = useState();
 
@@ -54,20 +54,27 @@ const {frisbee, setFrisbee} = React.useContext(FrisbeeContext);
             .then(data => setFrisbee(data))
         )
         }
-    const handleUpdate = (e) => {
+        const handleUpdate = (e) => {
         
-    fetch(`http://localhost:8080/frisbees`, {
-        method: "PUT",
-        headers: {
-            "Content-type": "application/json"
-        }
-    })
-    .then(()=> 
-    fetch('http://localhost:8080/frisbees')
-        .then(res => res.json())
-        .then(data => setFrisbee(data))
-    )
-    }
+            fetch(`http://localhost:8080/frisbees/${id}`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    brand:brand,
+                    type:type, 
+                    color:color, 
+                    description:desc, 
+                    img:img
+                }),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            })
+            .then(()=> 
+            fetch('http://localhost:8080/frisbees')
+                .then(res => res.json())
+                .then(data => setFrisbee(data))
+            )
+            }
 
     const handleFrisbeeSelected = (frisID) => {
         let fris = frisbee.filter(e => e.id == frisID)[0]
@@ -165,16 +172,16 @@ const {frisbee, setFrisbee} = React.useContext(FrisbeeContext);
             </Form.Select>
             <br></br>
             <Form.Group className="mb-3" controlId="formBrand" onChange={(e) => setBrand(e.target.value)}>
-                <input type="text" value={selected?.brand} placeholder="Brand" />
+                <input type="text" defaultValue={selected?.brand || ''} placeholder="Brand" />
             </Form.Group>
-            <Form.Select value={selected?.type}>
+            <Form.Select defaultValue={selected?.type}>
                 <option>Select Disc Type</option>
                 <option>Ultimate</option>
                 <option>Golf</option>
                 <option>Freestyle</option>
             </Form.Select>
             <br></br>
-            <Form.Select value={selected?.color} >
+            <Form.Select defaultValue={selected?.color} >
                 <option>Select Color</option>
                 <option>White</option>
                 <option>Red</option>
@@ -185,10 +192,11 @@ const {frisbee, setFrisbee} = React.useContext(FrisbeeContext);
             </Form.Select>
             <br></br>
             <Form.Group onChange={(e) => setDesc(e.target.value)} className="mb-3" controlId="formDesc">
-                <input type="text" value={selected?.desc} placeholder="Desc" onChange={(e) => setDesc(selected.desc) }/>
+                <input type="text" value={selected?.desc}  onChange={(e) => setDesc(e.target.value) }/>
+                
             </Form.Group>
             <Form.Label>Choose image close to new frisbee.</Form.Label>
-            <Form.Select value={selected?.img} onChange={(e) => setImg(e.target.value)}>
+            <Form.Select defaultValue={selected?.img} onChange={(e) => setImg(e.target.value)}>
                 <option>Select Image</option>
                 {frisbee?.map((fris, i)=>{
                     return(

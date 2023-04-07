@@ -2,13 +2,13 @@ import React from 'react'
 import './FrisbeeData.css'
 import {FrisbeeContext}  from '../App';
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+
 
 
 function FrisbeeData() {
 
-const [detailFrisbee1, setDetailFrisbee1] =useState()
-const {frisbee, setFrisbee,  detailFrisbee, setDetailFrisbee} = React.useContext(FrisbeeContext);
+
+const {frisbee, setDetailFrisbee} = React.useContext(FrisbeeContext);
 
 
   return (

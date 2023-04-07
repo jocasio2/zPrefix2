@@ -8,7 +8,6 @@
     width: 33%;
     display: flex;
   justify-content: center;
-  border: 1px solid black;
   padding-top: 2rem;
   text-align: center;
 }

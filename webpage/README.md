@@ -18,7 +18,7 @@ This application is for the SDI-15 cohort z-prefix full stack crud project.
 # Navigating the website
 -As a vistor you are able to see the home page, where you can click on individual frisbees and take you to an individual page. 
 -If you have an account, you are able to see the page, where you can add, delete, and update frisbees. 
--To log in the username is 'spaceCowboy' and the password is 'bang'. 
+-To log in the username is 'spaceCowboy' and the password is 'bang'. (if wrong info is entered, you will not be able to login) 
 -After adding, deleting, and/or updating, you can see the changes on the home page. 
 -Even as a vistor, you are able to see the items deleted, created, and updated in the home page. 
 -When adding/deleting/updating as manager, it is then updated in the DB as well. 

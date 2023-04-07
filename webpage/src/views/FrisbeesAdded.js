@@ -18,7 +18,7 @@ return (
             return (
                 <>
                 <div key={i} className='frisbeeImage'>
-                    <img src={frisbee.img}/>
+                    <img src={frisbee.img} alt='Pic of frisbee'/>
               
                 
                     <h4>{frisbee.brand}</h4>

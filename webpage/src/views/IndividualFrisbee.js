@@ -1,12 +1,12 @@
 import React from 'react'
 import { FrisbeeContext } from '../App';
-import { useState, useContext } from 'react';
+
 import './IndividualFrisbee.css'
 
 
 function IndividualFrisbee({details}) {
 
-    const {frisbee, setFrisbee, setDetailFrisbee, detailFrisbee} = React.useContext(FrisbeeContext);
+    const {detailFrisbee} = React.useContext(FrisbeeContext);
 
     
 console.log(detailFrisbee)
@@ -14,7 +14,7 @@ console.log(detailFrisbee)
     <div className='frisbeeDetails'>
        
         <div className='frisbeeImg'>
-            <img src={detailFrisbee.img}/>
+            <img src={detailFrisbee.img} alt='Pic of frisbee'/>
         </div>
         <div className='frisbeeBrand'>
             <h4>{detailFrisbee.brand}</h4>

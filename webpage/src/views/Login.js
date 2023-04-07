@@ -14,8 +14,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         //let found = false;
-        console.log('username:\n',username)
-        console.log('password:\n',password)
+    
         fetch('http://localhost:8080/login', {
           method: "POST",
           body: JSON.stringify({

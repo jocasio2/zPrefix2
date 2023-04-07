@@ -50,9 +50,7 @@ app.get('/frisbees', function(req, res) {
 
    app.post('/login', function(req, res) {
     let user = req.body;
-    console.log('email:\n', user.username)
-    console.log('password:\n', user.password)
-  
+
     let accepted = false; 
     knex.select('*').from('users')
       .then(users_table => {
@@ -84,13 +82,19 @@ app.get('/frisbees', function(req, res) {
 
 
   //PUT
-  app.put('/frisbees', function(req, res) {
+  app.put('/frisbees/:id', function(req, res) {
 
     let frisbee = req.body;
+    let frisbeeId = req.params.id
 
-  
-    knex('frisbees').where('id', frisbee.id)
-      .update(frisbee)
+    knex('frisbees').where('id', frisbeeId)
+      .update({
+        brand: frisbee.brand,
+        type: frisbee.type,
+        color: frisbee.color, 
+        description: frisbee.description,
+        img: frisbee.img
+      })
       .then(data => res.status(200).send("Insert into frisbees was successful!"))
       .catch(err => res.status(404).json(err))
    });
